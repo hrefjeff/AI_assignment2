@@ -35,27 +35,40 @@ listV = []
 
 # 2) Initilize state
 
-start = str(Matrix[0][2])
-goal  = str(Matrix[1][0])
+start = Matrix[0][2]
+goal  = Matrix[1][0]
 
 listT.append(start)
 
-listT.append(Matrix[0][0])
-listT.index("00") # <--- returs index of given number (useful for visited list)
 
-print listT[1]
+candidateNode = listT.pop()
 
-# if node is goal
-# 	done
-# else
-# 	expand node n
-# 	push N (x,[y + 1])
-#	push E ([x + 1],y)
-#	push S (x,[y - 1])
-#	push W ([x - 1],y)
+print list(candidateNode[0])
+print list(candidateNode[1])
 
 # 3) Successor function
 
-# if node in 
+while candidateNode != goal:
+	
+	# Convert string coordinates to ints
+	xCoordinate = list(candidateNode[0])
+	intX = [ int(x) for x in xCoordinate ]
+	yCoordinate = list(candidateNode[1])
+	intY = [ int(x) for x in yCoordinate ]
 
-# 4) Goal check
+	print Matrix[0][2]
+	print Matrix[intX][intY]
+
+# 	push N (x,[y + 1])
+	listT.append(Matrix[intX][intY + 1])
+#	push E ([x + 1],y)
+	listT.append(Matrix[intX + 1][intY])
+#	push S (x,[y - 1])
+#	push W ([x - 1],y)
+
+# if node in
+
+	print listT
+	candidateNode = listT.pop() 
+
+print listV
